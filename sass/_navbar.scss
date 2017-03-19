@@ -75,15 +75,18 @@
      *     </li>
      *
      *     <!-- item with icon -->
-     *     <li class="navbar-nav-item">
-     *       // TODO
+     *     <li class="navbar-nav-item mod-icon" data-icon="icon-name">
      *       <a class="navbar-nav-item-link"></a>
      *     </li>
+     *     <li class="navbar-nav-item mod-text mod-icon" data-icon="icon-name">text</li>
      *   </ul>
      * ```
      *
      * Notes:
      * 1) Reset default browser styles
+     * 2) Avoid the icon to become the target of the mouse, causing the
+     *    loss of "hover" on the item
+     * 3) Support for various browsers, see http://google.github.io/material-design-icons/
      */
     .navbar-nav {
         display: inline-block;
@@ -99,6 +102,33 @@
             &.mod-text {
                 height: 60px;
                 padding: 22px 20px 0;
+            }
+
+            &.mod-icon {
+                position: relative;
+
+                &.mod-text,
+                & > .navbar-nav-item-link {
+                    padding-left: 42px;
+                }
+            }
+
+            &.mod-icon:before {
+                -moz-osx-font-smoothing: grayscale; /* 3 */
+                -webkit-font-smoothing: antialiased; /* 3 */
+                content: attr(data-icon);
+                display: inline-block;
+                font-family: 'Material Icons';
+                font-feature-settings: 'liga'; /* 3 */
+                font-size: 24px;
+                font-style: normal;
+                font-weight: normal;
+                left: 11px;
+                line-height: 1;
+                pointer-events: none; /* 2 */
+                position: absolute;
+                text-rendering: optimizeLegibility; /* 3 */
+                top: 18px;
             }
         }
 
