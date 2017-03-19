@@ -84,7 +84,6 @@
      *
      * Notes:
      * 1) Reset default browser styles
-     * 2) Remove the whitespace between inline-block elements
      */
     .navbar-nav {
         display: inline-block;
@@ -95,8 +94,7 @@
     }
 
         .navbar-nav-item {
-            display: inline-block;
-            margin-left: -3px; /* 2 */ // TODO: use a unit relative to the font size
+            float: left;
 
             &.mod-text {
                 height: 60px;
