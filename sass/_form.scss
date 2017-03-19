@@ -1,0 +1,73 @@
+/**
+ * Form
+ * ====
+ */
+
+
+/**
+ * Input
+ * -----
+ *
+ * Class to use to style `<input>`, `<select>` and `<textarea>` elements.
+ * This class is not intended to style buttons (e.g. `type="submit"`,
+ * `type="button"`, etc..). Use the `<button>` tag for that purpose.
+ *
+ * To inform the user about the validity of the value inserted you can
+ * use the state classes `has-error`, `has-success`, `has-warning`.
+ * These states can be easily added by developers without needing to
+ * know about the presentation classes.
+ *
+ * Example usage:
+ * ```
+ *     <input class="input">             <!-- default -->
+ *     <input class="input has-error">   <!-- error state -->
+ *     <input class="input has-success"> <!-- success state -->
+ * ```
+ */
+
+.input {
+    background-color: #fff;
+    border: 1px solid #dbdcdd;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, .05);
+    color: $color-font;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px 15px;
+    width: 100%; // TODO: explain
+
+    &::placeholder {
+        color: lighten($color-font, 30%);
+    }
+
+    &:hover {
+        border: 1px solid #bababb;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, .075);
+    }
+
+    &:focus {
+        border: 1px solid $color-primary;
+        outline: none;
+    }
+
+    &.has-error {
+        background-image: svg-icon('close', $color-error);
+        background-position: right 8px center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        border-color: $color-error;
+        color: $color-error;
+        font-weight: 400;
+        padding-right: 30px;
+    }
+
+    &.has-success {
+        background-image: svg-icon('check', $color-success);
+        background-position: right 8px center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        border-color: $color-success;
+        padding-right: 33px;
+    }
+}

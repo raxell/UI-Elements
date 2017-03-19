@@ -1,0 +1,120 @@
+/**
+ * Navbar
+ * ======
+ *
+ * Main navigation bar of the site. It can contains logo, search bar,
+ * page links, etc.. (see below for a full list).
+ *
+ * On small devices everything except `navbar-brand` is collapsed
+ * and is shown/hidden by tapping the appropriate icon.
+ *
+ * Example usage:
+ * ```
+ *   <nav class="navbar">
+ *     <div class="container">
+ *       <a class="navbar-brand" href="/">Navbar Brand</a>
+ *
+ *       <ul class="navbar-nav">
+ *         ...
+ *       </ul>
+ *     </div>
+ *   </nav>
+ * ```
+ */
+
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e3e4;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+    height: 60px;
+    width: 100%;
+}
+
+    /**
+     * Navbar Brand
+     * ------------
+     *
+     * The brand is simply a link that identifies the site name/logo, it
+     * is not intended to use with `<h1>` or similiar (`<h1>` is better
+     * suited to mark the main title of the page, not the site name/logo).
+     *
+     * Example usage:
+     * ```
+     *   <a class="navbar-brand" href="/">Navbar Brand</a>
+     * ```
+     */
+    .navbar-brand {
+        color: #354052;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 400;
+        height: 60px;
+        margin-right: 30px;
+        padding-top: 18px;
+    }
+
+    /**
+     * Navbar Nav
+     * ----------
+     *
+     * Links to the main pages of the site (e.g. "About", "Contact", etc..).
+     *
+     * Example usage:
+     * ```
+     *   <ul class="navbar-nav">
+     *     <!-- text item -->
+     *     <li class="navbar-nav-item mod-text">text</li>
+     *
+     *     <!-- simple item -->
+     *     <li class="navbar-nav-item">
+     *       <a class="navbar-nav-item-link"></a>
+     *     </li>
+     *
+     *     <!-- active item -->
+     *     <li class="navbar-nav-item">
+     *       <a class="navbar-nav-item-link is-active"></a>
+     *     </li>
+     *
+     *     <!-- item with icon -->
+     *     <li class="navbar-nav-item">
+     *       // TODO
+     *       <a class="navbar-nav-item-link"></a>
+     *     </li>
+     *   </ul>
+     * ```
+     *
+     * Notes:
+     * 1) Reset default browser styles
+     * 2) Remove the whitespace between inline-block elements
+     */
+    .navbar-nav {
+        display: inline-block;
+        list-style: none; /* 1 */
+        padding: 0; /* 1 */
+        margin: 0; /* 1 */
+    }
+
+        .navbar-nav-item {
+            display: inline-block;
+            margin-left: -3px; /* 2 */ // TODO: use a unit relative to the font size
+
+            &.mod-text {
+                height: 60px;
+                padding: 21px 20px 0;
+            }
+        }
+
+        .navbar-nav-item-link {
+            color: $color-font-link;
+            display: inline-block;
+            height: 60px;
+            padding: 21px 20px 0;
+
+            &.is-active {
+                box-shadow: 0 0 5px rgba(0, 0, 0, .125);
+            }
+
+            &:hover {
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, .125);
+            }
+        }

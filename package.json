@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "node-sass": "^4.5.0"
+  },
+  "scripts": {
+    "build": "node-sass sass/all.scss  css/all.css --output-style=expanded",
+    "build:watch": "node-sass sass/all.scss  -wo css --output-style=expanded"
+  }
+}

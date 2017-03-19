@@ -1,0 +1,42 @@
+/**
+ * Alert
+ * =====
+ *
+ * Panel that provide feedback messages to user.
+ */
+
+.alert {
+    background-color: $color-primary;
+    border-radius: 3px;
+    color: #fff;
+    padding: 12px 40px 12px 20px;
+    width: 100%; // Todo: choose how to handle width: parent container or modifier?
+
+    // TODO: Remove? Is this necessary?
+    // Truncate a really long word in a small width alert.
+    // This situation should never happen in real world scenarios, just precaution.
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.mod-success {
+        background-color: $color-success;
+    }
+
+    &.mod-warning {
+        background-color: $color-warning;
+    }
+
+    &.mod-error {
+        background-color: $color-error;
+    }
+}
+
+    .alert-close {
+        color: rgba(255, 255, 255, .6);
+        cursor: pointer;
+        float: right;
+        font-size: 18px;
+        position: relative;
+        margin-right: -30px; // HACK
+        margin-top: -1px; // HACK
+    }

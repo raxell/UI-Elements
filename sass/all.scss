@@ -1,0 +1,45 @@
+// Variables
+@import 'variables';
+
+@import 'svg-icons';
+
+// Normalize CSS
+@import '_normalize';
+
+// Generic styles
+@import 'main';
+
+@import 'grid';
+
+@import 'navbar';
+@import 'form';
+@import 'alert';
+@import 'panel';
+
+
+.btn {
+    background-color: $color-primary;
+    border: 0;
+    border-bottom: 2px solid darken($color-primary, 20%);
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    padding: 9px 20px;
+    height: 38px;
+
+    &.mod-error {
+        background-color: $color-error;
+        border-bottom: 2px solid darken($color-error, 10%);
+        &:hover {
+            background-color: darken($color-error, 5%);
+        }
+    }
+
+    &.mod-success {
+        background-color: $color-success;
+        border-bottom: 2px solid darken($color-success, 10%);
+        &:hover {
+            background-color: darken($color-success, 5%);
+        }
+    }
+}

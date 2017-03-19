@@ -1,0 +1,34 @@
+/**
+ * Main
+ * ====
+ *
+ * Styles for generic elements.
+ */
+
+html {
+    box-sizing: border-box;
+    font-size: 87.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: $color-main-bg url('../images/bg-pattern.png'); // TODO: inline
+    color: $color-font;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+a {
+    color: $color-font-link;
+    text-decoration: none;
+
+    &:hover {
+        color: $color-font-link-hover;
+    }
+}
