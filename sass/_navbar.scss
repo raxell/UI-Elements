@@ -57,13 +57,14 @@
      * ----------
      *
      * Links to the main pages of the site (e.g. "About", "Contact", etc..).
+     * Links can have different styles depending on the modifiers applied.
+     * By convention modifiers (and states) always apply to the `<a>` tag.
+     * NB: `<li>` elements must always contain an `<a>` in it: nav items
+     * without links does not make much sense.
      *
      * Example usage:
      * ```
      *   <ul class="navbar-nav">
-     *     <!-- text item, can be used for pages not implemented yet -->
-     *     <li class="navbar-nav-item mod-text">text</li>
-     *
      *     <!-- simple item -->
      *     <li class="navbar-nav-item">
      *       <a class="navbar-nav-item-link"></a>
@@ -78,7 +79,6 @@
      *     <li class="navbar-nav-item mod-icon" data-icon="icon-name">
      *       <a class="navbar-nav-item-link"></a>
      *     </li>
-     *     <li class="navbar-nav-item mod-text mod-icon" data-icon="icon-name">text</li>
      *
      *     <!-- button style item, can be used for login/signup links -->
      *     <li class="navbar-nav-item">
@@ -106,15 +106,9 @@
         .navbar-nav-item {
             float: left;
 
-            &.mod-text {
-                height: 60px;
-                padding: 22px 20px 0;
-            }
-
             &.mod-icon {
                 position: relative;
 
-                &.mod-text,
                 & > .navbar-nav-item-link {
                     padding-left: 42px;
                 }
