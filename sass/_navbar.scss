@@ -80,6 +80,11 @@
      *       <a class="navbar-nav-item-link"></a>
      *     </li>
      *
+     *     <!-- item with icon only (anchor text is in the markup but is hidden) -->
+     *     <li class="navbar-nav-item">
+     *       <a class="navbar-nav-item-link mod-icon mod-text-hidden" data-icon="icon-name">Page name</a>
+     *     </li>
+     *
      *     <!-- button style item, can be used for login/signup links -->
      *     <li class="navbar-nav-item">
      *         <a class="navbar-nav-item-link mod-button"></a>
@@ -112,8 +117,13 @@
             padding: 22px 20px 0;
 
             &.mod-icon {
-                padding-left: 42px;
+                padding-left: 44px;
                 position: relative;
+
+                &.mod-text-hidden {
+                    font-size: 0;
+                    padding: 22px 24px;
+                }
 
                 &:before {
                     -moz-osx-font-smoothing: grayscale; /* 2 */
@@ -125,7 +135,7 @@
                     font-size: 24px;
                     font-style: normal;
                     font-weight: normal;
-                    left: 11px;
+                    left: 12px;
                     line-height: 1;
                     position: absolute;
                     text-rendering: optimizeLegibility; /* 2 */
