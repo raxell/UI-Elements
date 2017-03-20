@@ -79,6 +79,13 @@
      *       <a class="navbar-nav-item-link"></a>
      *     </li>
      *     <li class="navbar-nav-item mod-text mod-icon" data-icon="icon-name">text</li>
+     *
+     *     <!-- button style item, can be used for login/signup links -->
+     *     <li class="navbar-nav-item">
+     *         <a class="navbar-nav-item-link mod-button"></a>
+     *         <!-- or -->
+     *         <a class="navbar-nav-item-link mod-button mod-primary"></a>
+     *     </li>
      *   </ul>
      * ```
      *
@@ -137,6 +144,21 @@
             display: inline-block;
             height: 60px;
             padding: 22px 20px 0;
+
+            &.mod-button {
+                background-color: $color-main-bg;
+                border-radius: 3px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+                font-weight: 400;
+                height: 38px;
+                margin: 11px 0 0 15px;
+                padding: 10px 20px;
+
+                &.mod-primary {
+                    background-color: $color-primary;
+                    color: #fff;
+                }
+            }
 
             &.is-active {
                 box-shadow: 0 1px 3px rgba(0, 0, 0, .125);
