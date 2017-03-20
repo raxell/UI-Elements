@@ -91,9 +91,7 @@
      *
      * Notes:
      * 1) Reset default browser styles
-     * 2) Avoid the icon to become the target of the mouse, causing the
-     *    loss of "hover" on the item
-     * 3) Support for various browsers, see http://google.github.io/material-design-icons/
+     * 2) Support for various browsers, see http://google.github.io/material-design-icons/
      */
     .navbar-nav {
         display: inline-block;
@@ -105,32 +103,6 @@
 
         .navbar-nav-item {
             float: left;
-
-            &.mod-icon {
-                position: relative;
-
-                & > .navbar-nav-item-link {
-                    padding-left: 42px;
-                }
-            }
-
-            &.mod-icon:before {
-                -moz-osx-font-smoothing: grayscale; /* 3 */
-                -webkit-font-smoothing: antialiased; /* 3 */
-                content: attr(data-icon);
-                display: inline-block;
-                font-family: 'Material Icons';
-                font-feature-settings: 'liga'; /* 3 */
-                font-size: 24px;
-                font-style: normal;
-                font-weight: normal;
-                left: 11px;
-                line-height: 1;
-                pointer-events: none; /* 2 */
-                position: absolute;
-                text-rendering: optimizeLegibility; /* 3 */
-                top: 18px;
-            }
         }
 
         .navbar-nav-item-link {
@@ -138,6 +110,28 @@
             display: inline-block;
             height: 60px;
             padding: 22px 20px 0;
+
+            &.mod-icon {
+                padding-left: 42px;
+                position: relative;
+
+                &:before {
+                    -moz-osx-font-smoothing: grayscale; /* 2 */
+                    -webkit-font-smoothing: antialiased; /* 2 */
+                    content: attr(data-icon);
+                    display: inline-block;
+                    font-family: 'Material Icons';
+                    font-feature-settings: 'liga'; /* 2 */
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: normal;
+                    left: 11px;
+                    line-height: 1;
+                    position: absolute;
+                    text-rendering: optimizeLegibility; /* 2 */
+                    top: 18px;
+                }
+            }
 
             &.mod-button {
                 background-color: $color-main-bg;
