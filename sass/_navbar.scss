@@ -101,15 +101,11 @@
      * 2) Support for various browsers, see http://google.github.io/material-design-icons/
      */
     .navbar-nav {
-        display: inline-block;
+        display: flex;
         list-style: none; /* 1 */
         padding: 0; /* 1 */
         margin: 0; /* 1 */
     }
-
-        .navbar-nav-item {
-            float: left;
-        }
 
         .navbar-nav-item-link {
             color: $color-font-link;
