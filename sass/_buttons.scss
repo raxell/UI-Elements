@@ -1,6 +1,28 @@
 /**
  * Buttons
  * =======
+ *
+ * Button classes must be added to `<a>` and `<button>` tags only.
+ * The background color can be changed using the appropriate modifier.
+ *
+ * Example usage:
+ * ```
+ *   <!-- base button -->
+ *   <a class="button">Button</a>
+ *   <button class="button" type="button">Button</button>
+ *
+ *   <!-- primary button -->
+ *   <a class="button mod-primary">Primary</a>
+ *   <button class="button mod-primary" type="button">Primary</button>
+ *
+ *   <!-- success button -->
+ *   <a class="button mod-success">Success</a>
+ *   <button class="button mod-success" type="button">Success</button>
+ *
+ *   <!-- error button -->
+ *   <a class="button mod-error">Error</a>
+ *   <button class="button mod-error" type="button">Error</button>
+ * ```
  */
 
 .button {
