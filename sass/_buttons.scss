@@ -22,6 +22,14 @@
  *   <!-- error button -->
  *   <a class="button mod-error">Error</a>
  *   <button class="button mod-error" type="button">Error</button>
+ *
+ *   <!-- button with icon -->
+ *   <a class="button [modifiers] mod-icon" data-icon="icon_name">Button</a>
+ *   <button class="button [modifiers] mod-icon" type="button" data-icon="icon_name">Button</button>
+ *
+ *   <!-- button with icon only (text is hidden) -->
+ *   <a class="button [modifiers] mod-icon mod-text-hidden" data-icon="icon_name">Button</a>
+ *   <button class="button [modifiers] mod-icon mod-text-hidden" type="button" data-icon="icon_name">Button</button>
  * ```
  */
 
@@ -54,5 +62,32 @@
     &.mod-error {
         background-color: $color-error;
         color: #fff;
+    }
+
+    &.mod-icon {
+        padding-left: 38px;
+        position: relative;
+
+        &.mod-text-hidden {
+            font-size: 0;
+            padding: 10px 21px;
+        }
+
+        &:before {
+            -moz-osx-font-smoothing: grayscale; /* 2 */
+            -webkit-font-smoothing: antialiased; /* 2 */
+            content: attr(data-icon);
+            display: inline-block;
+            font-family: 'Material Icons';
+            font-feature-settings: 'liga'; /* 2 */
+            font-size: 24px;
+            font-style: normal;
+            font-weight: normal;
+            left: 9px;
+            line-height: 1;
+            position: absolute;
+            text-rendering: optimizeLegibility; /* 2 */
+            top: 7px;
+        }
     }
 }
