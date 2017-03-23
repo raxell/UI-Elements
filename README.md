@@ -77,6 +77,9 @@ starts with `mod-`
 * Define state classes after modifiers in source-order to avoid modifiers accidentally
 overriding states
 
+* Preprocessor nested rules should be used only when you need to reference the parent
+selector (e.g. pseudo-classes, modifiers, states, etc...)
+
 * *State* and *Modifier* classes must be tied to the selector they affect, they **should
 never be declared as stand-alone rules**. Example:
     ```
