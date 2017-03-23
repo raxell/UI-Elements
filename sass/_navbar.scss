@@ -10,14 +10,12 @@
  *
  * Example usage:
  * ```
- *   <nav class="navbar">
- *     <div class="container">
- *       <a class="navbar-brand" href="/">Navbar Brand</a>
+ *   <nav class="navbar mod-container">
+ *     <a class="navbar-brand" href="/">Navbar Brand</a>
  *
- *       <ul class="navbar-nav">
+ *     <ul class="navbar-nav">
  *         ...
- *       </ul>
- *     </div>
+ *     </ul>
  *   </nav>
  * ```
  */
@@ -26,6 +24,10 @@
     background: #fff;
     box-shadow: 0 0 3px rgba(0, 0, 0, .15);
     width: 100%;
+
+    &.mod-container {
+        padding: 0 30px;
+    }
 }
 
     /**
