@@ -1,3 +1,4 @@
+@import 'skeletons/_button.scss';
 @import 'skeletons/_mod-icon.scss';
 
 /**
@@ -137,18 +138,9 @@
             }
 
             &.mod-button {
-                background-color: $color-main-bg;
-                border-radius: 3px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
-                font-weight: 400;
-                height: 38px;
-                margin: 11px 0 11px 15px;
-                padding: 10px 20px;
+                @extend %button;
 
-                &.mod-primary {
-                    background-color: $color-primary;
-                    color: #fff;
-                }
+                margin: 11px 0 11px 15px;
 
                 &.mod-icon {
                     padding-left: 38px;
