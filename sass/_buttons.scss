@@ -1,31 +1,93 @@
 /**
  * Buttons
  * =======
+ *
+ * Button classes must be added to `<a>` and `<button>` tags only.
+ * The background color can be changed using the appropriate modifier.
+ *
+ * Example usage:
+ * ```
+ *   <!-- base button -->
+ *   <a class="button">Button</a>
+ *   <button class="button" type="button">Button</button>
+ *
+ *   <!-- primary button -->
+ *   <a class="button mod-primary">Primary</a>
+ *   <button class="button mod-primary" type="button">Primary</button>
+ *
+ *   <!-- success button -->
+ *   <a class="button mod-success">Success</a>
+ *   <button class="button mod-success" type="button">Success</button>
+ *
+ *   <!-- error button -->
+ *   <a class="button mod-error">Error</a>
+ *   <button class="button mod-error" type="button">Error</button>
+ *
+ *   <!-- button with icon -->
+ *   <a class="button [modifiers] mod-icon" data-icon="icon_name">Button</a>
+ *   <button class="button [modifiers] mod-icon" type="button" data-icon="icon_name">Button</button>
+ *
+ *   <!-- button with icon only (text is hidden) -->
+ *   <a class="button [modifiers] mod-icon mod-text-hidden" data-icon="icon_name">Button</a>
+ *   <button class="button [modifiers] mod-icon mod-text-hidden" type="button" data-icon="icon_name">Button</button>
+ * ```
  */
 
-.btn {
-    background-color: $color-primary;
+.button {
+    background-color: $color-main-bg;
     border: 0;
-    border-bottom: 2px solid darken($color-primary, 20%);
     border-radius: 3px;
-    color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+    color: $color-primary;
     cursor: pointer;
-    padding: 9px 20px;
+    display: inline-block;
     height: 38px;
+    font-weight: 400;
+    padding: 10px 20px;
 
-    &.mod-error {
-        background-color: $color-error;
-        border-bottom: 2px solid darken($color-error, 10%);
-        &:hover {
-            background-color: darken($color-error, 5%);
-        }
+    &:hover {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .125);
+    }
+
+    &.mod-primary {
+        background-color: $color-primary;
+        color: #fff;
     }
 
     &.mod-success {
         background-color: $color-success;
-        border-bottom: 2px solid darken($color-success, 10%);
-        &:hover {
-            background-color: darken($color-success, 5%);
+        color: #fff;
+    }
+
+    &.mod-error {
+        background-color: $color-error;
+        color: #fff;
+    }
+
+    &.mod-icon {
+        padding-left: 38px;
+        position: relative;
+
+        &.mod-text-hidden {
+            font-size: 0;
+            padding: 10px 21px;
+        }
+
+        &:before {
+            -moz-osx-font-smoothing: grayscale; /* 2 */
+            -webkit-font-smoothing: antialiased; /* 2 */
+            content: attr(data-icon);
+            display: inline-block;
+            font-family: 'Material Icons';
+            font-feature-settings: 'liga'; /* 2 */
+            font-size: 24px;
+            font-style: normal;
+            font-weight: normal;
+            left: 9px;
+            line-height: 1;
+            position: absolute;
+            text-rendering: optimizeLegibility; /* 2 */
+            top: 7px;
         }
     }
 }
