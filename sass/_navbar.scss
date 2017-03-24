@@ -17,7 +17,7 @@
  *     <a class="navbar-brand" href="/">Navbar Brand</a>
  *
  *     <ul class="navbar-nav">
- *         ...
+ *       ...
  *     </ul>
  *   </nav>
  * ```
@@ -34,6 +34,7 @@
     }
 }
 
+
     /**
      * Navbar Brand
      * ------------
@@ -47,6 +48,7 @@
      *   <a class="navbar-brand" href="/">Navbar Brand</a>
      * ```
      */
+
     .navbar-brand {
         color: #354052;
         display: inline-block;
@@ -56,6 +58,7 @@
         margin-right: 30px;
         padding-top: 19px;
     }
+
 
     /**
      * Navbar Nav
@@ -109,6 +112,7 @@
      * Notes:
      * 1) Reset default browser styles
      */
+
     .navbar-nav {
         display: flex;
         list-style: none; /* 1 */
