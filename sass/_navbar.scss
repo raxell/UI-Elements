@@ -19,6 +19,10 @@
  *     <ul class="navbar-nav">
  *       ...
  *     </ul>
+ *
+ *     <form class="navbar-search" action="" method="">
+ *       ...
+ *     </form>
  *   </nav>
  * ```
  */
@@ -167,4 +171,67 @@
             &:hover {
                 box-shadow: inset 0 1px 3px rgba(0, 0, 0, .125);
             }
+        }
+
+
+    /**
+     * Navbar Search
+     * -------------
+     *
+     * Add a search input to the navbar.
+     *
+     * Example usage:
+     * ```
+     *   <form class="navbar-search" action="" method="">
+     *     <input class="navbar-search-textfield" type="text" placeholder="Search">
+     *     <button class="navbar-search-button" type="submit">search</button> <!-- "search" is the name of the Material Icon -->
+     *   </form>
+     * ```
+     */
+
+    .navbar-search {
+        position: relative;
+        width: 350px; // TODO: review
+    }
+
+        .navbar-search-textfield {
+            border: 1px solid rgba(0, 0, 0, .075);
+            border-bottom-color: transparent;
+            border-radius: 3px;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .125);
+            color: $color-font;
+            font-weight: 300;
+            height: 40px;
+            margin: 10px 0;
+            outline-width: 0;
+            padding: 10px 40px 10px 15px;
+            transition: border-color .1s ease;
+            width: 100%;
+
+            &::placeholder {
+                color: #ddd;
+            }
+
+            &:focus {
+                border: 1px solid $color-primary;
+            }
+        }
+
+        .navbar-search-button {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            background: transparent;
+            border: 0;
+            color: $color-primary;
+            cursor: pointer;
+            font-family: 'Material Icons';
+            font-feature-settings: 'liga';
+            font-size: 24px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            position: absolute;
+            right: 5px;
+            text-rendering: optimizeLegibility;
+            top: 17px;
         }
