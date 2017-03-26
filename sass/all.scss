@@ -9,6 +9,10 @@
 // Generic styles
 @import 'main';
 
+// Placeholder selectors
+@import 'skeletons/_button';
+@import 'skeletons/_mod-icon';
+
 @import 'navbar';
 @import 'form';
 @import 'alert';
