@@ -215,22 +215,15 @@
         }
 
         .navbar-search-button {
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
+            @include material-icons();
+
             background: transparent;
             border: 0;
             color: $color-primary;
             cursor: pointer;
-            font-family: 'Material Icons';
-            font-feature-settings: 'liga';
-            font-size: 24px;
-            font-style: normal;
-            font-weight: normal;
             height: 40px;
-            line-height: 1;
             padding: 0 10px;
             position: absolute;
             right: 0;
-            text-rendering: optimizeLegibility;
             top: 10px;
         }
