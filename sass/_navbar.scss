@@ -40,6 +40,8 @@
      * The brand is simply a link that identifies the site name/logo, it
      * is not intended to use with `<h1>` or similiar (`<h1>` is better
      * suited to mark the main title of the page, not the site name/logo).
+     * This is the first element of the navbar, on mobile devices can only
+     * be preceded by the main nav toggle icon (see Nav sub-component).
      *
      * Example usage:
      * ```
@@ -68,8 +70,24 @@
      * NB: `<li>` elements must always contain an `<a>` in it: nav items
      * without links does not make much sense.
      *
+     * On mobile devices the nav is hidden and can be toggled by clicking
+     * the appropriate icon. Each nav has its own icon. By default these
+     * icons are placed at the end of the navbar, but you can pick one for
+     * being placed as first element (before the brand) by apply the
+     * `mod-first` modifier.
+     * The show/hide effect of the nav is obtained using a checkbox and a
+     * label: the checkbox is used for the toggle mechanism, the label for
+     * displaying the icon.
+     * NB: each nav has its own couple of `<label><input>` that must be placed
+     * in this exact order before the `<ul>`. Each checkbox toggle the nav
+     * that immediately follow it in the markup.
+     *
      * Example usage:
      * ```
+     *   <!-- "nav-name" is just an example name for the nav -->
+     *   <!-- "menu" is the name of the Material Icon, you can use any other available icon -->
+     *   <label class="navbar-toggle-nav-icon [mod-first]" for="nav-name">menu</label>
+     *   <input class="navbar-toggle-nav" type="checkbox" id="nav-name">
      *   <ul class="navbar-nav">
      *     <!-- simple item -->
      *     <li class="navbar-nav-item">
@@ -110,6 +128,28 @@
      * Notes:
      * 1) Reset default browser styles
      */
+
+    .navbar-toggle-nav {
+        display: none;
+
+        &:checked + .navbar-nav {
+            display: flex;
+        }
+    }
+
+    .navbar-toggle-nav-icon {
+        @include material-icons();
+
+        cursor: pointer;
+        display: none;
+        height: 60px;
+        order: 2;
+        padding: 18px 10px 0 10px;
+
+        &.mod-first {
+            order: -1;
+        }
+    }
 
     .navbar-nav {
         display: flex;
@@ -229,3 +269,14 @@
             right: 0;
             top: 10px;
         }
+
+// TODO: define media queries breakpoints
+@media (max-width: 768px) {
+    .navbar-toggle-nav-icon {
+        display: inline-block;
+    }
+
+    .navbar-nav {
+        display: none;
+    }
+}
