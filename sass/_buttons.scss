@@ -38,16 +38,5 @@
 
     &.mod-icon {
         @extend %mod-icon;
-
-        padding-left: 38px;
-
-        &.mod-text-hidden {
-            padding: 10px 21px;
-        }
-
-        &:before {
-            left: 9px;
-            top: 7px;
-        }
     }
 }

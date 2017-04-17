@@ -4,21 +4,24 @@
  *
  * Adds a pseudo-element before the element it is applied to.
  * This pseudo-element contains the icon specified in the `data-icon` attribute.
- * The position and spacing of the icon must be specified in the selector that
- * extend this placeholder.
  */
 
 %mod-icon {
-    position: relative;
+    padding-left: 12px;
 
     &.mod-text-hidden {
         font-size: 0;
+        padding: 0 12px;
+
+        &:before {
+            margin-right: 0;
+        }
     }
 
     &:before {
         @include material-icons();
 
         content: attr(data-icon);
-        position: absolute;
+        margin-right: 6px;
     }
 }
