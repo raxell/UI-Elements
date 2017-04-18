@@ -259,6 +259,10 @@
 
 // TODO: define media queries breakpoints
 @media (max-width: 768px) {
+    .navbar.mod-container {
+        padding: 0;
+    }
+
     .navbar-toggle-nav-icon {
         display: flex;
     }
