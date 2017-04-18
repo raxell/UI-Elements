@@ -257,8 +257,8 @@
             padding: 0 10px;
         }
 
-// TODO: define media queries breakpoints
-@media (max-width: 768px) {
+
+@media #{$medium} {
     .navbar {
         flex-wrap: wrap;
 
