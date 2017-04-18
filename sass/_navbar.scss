@@ -202,7 +202,9 @@
      * Navbar Search
      * -------------
      *
-     * Add a search input to the navbar.
+     * Add a search input to the navbar. The search input tries to fill all
+     * the available space, but if there's too much space the input is fixed
+     * to a maximum width and is aligned to the right.
      *
      * Example usage:
      * ```
@@ -216,7 +218,8 @@
     .navbar-search {
         align-items: center;
         display: flex;
-        width: 350px; // TODO: review
+        flex: 1;
+        justify-content: flex-end;
     }
 
         .navbar-search-textfield {
@@ -227,6 +230,7 @@
             color: $color-font;
             font-weight: 300;
             height: 40px;
+            max-width: 350px; // TODO: review
             outline-width: 0;
             padding: 0 40px 0 15px;
             transition: border-color .1s ease;
