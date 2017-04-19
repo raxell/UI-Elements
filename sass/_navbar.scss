@@ -176,7 +176,7 @@
                 &.mod-button {
                     @extend %button;
 
-                    margin-left: 15px;
+                    margin: 0 5px;
                 }
 
                 &.is-active {
@@ -284,5 +284,9 @@
             .navbar-nav-item-link {
                 justify-content: center;
                 width: 100%;
+
+                &.mod-button {
+                    margin: 0 10px;
+                }
             }
 }
