@@ -180,6 +180,17 @@ sup {
   top: -0.5em;
 }
 
+/**
+ * Reset default browser styles for list elements.
+ */
+
+ul,
+ol, {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* Embedded content
    ========================================================================== */
 
