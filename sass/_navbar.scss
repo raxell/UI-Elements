@@ -201,6 +201,11 @@
      * the available space, but if there's too much space the input is fixed
      * to a maximum width and is aligned to the right.
      *
+     * On small screens the input is hidden and only the search icon remains.
+     * By clicking the search icon the input appears as a full width bar that
+     * overrides the other navbar sub-components. On focus loss the input
+     * returns to the hidden state.
+     *
      * Example usage:
      * ```
      *   <form class="navbar-search" action="" method="">
@@ -229,7 +234,7 @@
             max-width: 350px; // TODO: review
             outline-width: 0;
             padding: 0 40px 0 15px;
-            transition: border-color .1s ease;
+            transition: border-color .1s ease, width .25s ease;
             width: 100%;
 
             &::placeholder {
@@ -289,4 +294,43 @@
                     margin: 0 10px;
                 }
             }
+}
+
+
+@media #{$small} {
+    .navbar-search {
+        padding: 0;
+    }
+
+    .navbar-search-textfield {
+        border-color: transparent;
+        box-shadow: none;
+        color: transparent;
+        max-width: none;
+        padding-right: 15px;
+        width: 44px;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:focus {
+            border: 1px solid $color-primary;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .125);
+            color: $color-font;
+            padding-right: 40px;
+            position: absolute;
+            right: 2.5%;
+            width: 95%;
+
+            & + .navbar-search-button {
+                position: absolute;
+                right: 2.5%;
+            }
+        }
+    }
+
+    .navbar-search-button {
+        pointer-events: none;
+    }
 }
