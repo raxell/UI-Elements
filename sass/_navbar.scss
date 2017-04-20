@@ -5,30 +5,33 @@
  * Main navigation bar of the site. It can contains logo, search bar,
  * page links, etc.. (see below for a full list).
  *
- * On small devices everything except `navbar-brand` is collapsed
- * and is shown/hidden by tapping the appropriate icon.
- *
  * Example usage:
  * ```
- *   <nav class="navbar">
- *     <div class="container">
- *       <a class="navbar-brand" href="/">Navbar Brand</a>
+ *   <nav class="navbar mod-container">
+ *     <a class="navbar-brand" href="/">Navbar Brand</a>
  *
- *       <ul class="navbar-nav">
- *         ...
- *       </ul>
- *     </div>
+ *     <ul class="navbar-nav">
+ *       ...
+ *     </ul>
+ *
+ *     <form class="navbar-search" action="" method="">
+ *       ...
+ *     </form>
  *   </nav>
  * ```
  */
 
 .navbar {
     background: #fff;
-    border-bottom: 1px solid #e2e3e4;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-    height: 60px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .125);
+    display: flex;
     width: 100%;
+
+    &.mod-container {
+        padding: 0 30px;
+    }
 }
+
 
     /**
      * Navbar Brand
@@ -37,34 +40,56 @@
      * The brand is simply a link that identifies the site name/logo, it
      * is not intended to use with `<h1>` or similiar (`<h1>` is better
      * suited to mark the main title of the page, not the site name/logo).
+     * This is the first element of the navbar, on mobile devices can only
+     * be preceded by the main nav toggle icon (see Nav sub-component).
      *
      * Example usage:
      * ```
      *   <a class="navbar-brand" href="/">Navbar Brand</a>
      * ```
      */
+
     .navbar-brand {
+        align-items: center;
         color: #354052;
-        display: inline-block;
+        display: flex;
         font-size: 18px;
         font-weight: 400;
         height: 60px;
-        margin-right: 30px;
-        padding-top: 18px;
+        padding: 0 10px;
+        white-space: nowrap;
     }
+
 
     /**
      * Navbar Nav
      * ----------
      *
      * Links to the main pages of the site (e.g. "About", "Contact", etc..).
+     * Links can have different styles depending on the modifiers applied.
+     * By convention modifiers (and states) always apply to the `<a>` tag.
+     * NB: `<li>` elements must always contain an `<a>` in it: nav items
+     * without links does not make much sense.
+     *
+     * On mobile devices the nav is hidden and can be toggled by clicking
+     * the appropriate icon. Each nav has its own icon. By default these
+     * icons are placed at the end of the navbar, but you can pick one for
+     * being placed as first element (before the brand) by apply the
+     * `mod-first` modifier.
+     * The show/hide effect of the nav is obtained using a checkbox and a
+     * label: the checkbox is used for the toggle mechanism, the label for
+     * displaying the icon.
+     * NB: each nav has its own couple of `<label><input>` that must be placed
+     * in this exact order before the `<ul>`. Each checkbox toggle the nav
+     * that immediately follow it in the markup.
      *
      * Example usage:
      * ```
+     *   <!-- "nav-name" is just an example name for the nav -->
+     *   <!-- "menu" is the name of the Material Icon, you can use any other available icon -->
+     *   <label class="navbar-toggle-nav-icon [mod-first]" for="nav-name">menu</label>
+     *   <input class="navbar-toggle-nav" type="checkbox" id="nav-name">
      *   <ul class="navbar-nav">
-     *     <!-- text item -->
-     *     <li class="navbar-nav-item mod-text">text</li>
-     *
      *     <!-- simple item -->
      *     <li class="navbar-nav-item">
      *       <a class="navbar-nav-item-link"></a>
@@ -76,45 +101,236 @@
      *     </li>
      *
      *     <!-- item with icon -->
-     *     <li class="navbar-nav-item">
-     *       // TODO
+     *     <li class="navbar-nav-item mod-icon" data-icon="icon-name">
      *       <a class="navbar-nav-item-link"></a>
+     *     </li>
+     *
+     *     <!-- item with icon only (anchor text is in the markup but is hidden) -->
+     *     <li class="navbar-nav-item">
+     *       <a class="navbar-nav-item-link mod-icon mod-text-hidden" data-icon="icon-name">Page name</a>
+     *     </li>
+     *
+     *     <!-- button style item, can be used for login/signup links -->
+     *     <li class="navbar-nav-item">
+     *         <a class="navbar-nav-item-link mod-button"></a>
+     *         <!-- or -->
+     *         <a class="navbar-nav-item-link mod-button mod-primary"></a>
+     *     </li>
+     *
+     *     <!-- button style item with icon -->
+     *     <li class="navbar-nav-item">
+     *         <a class="navbar-nav-item-link mod-button [modifiers] mod-icon" data-icon="icon_name"></a>
+     *         <!-- or, with hidden text -->
+     *         <a class="navbar-nav-item-link mod-button [modifiers] mod-icon mod-text-hidden" data-icon="icon_name"></a>
      *     </li>
      *   </ul>
      * ```
-     *
-     * Notes:
-     * 1) Reset default browser styles
-     * 2) Remove the whitespace between inline-block elements
      */
+
+    .navbar-toggle-nav {
+        display: none;
+
+        &:checked + .navbar-nav {
+            display: flex;
+        }
+    }
+
+    .navbar-toggle-nav-icon {
+        @include material-icons();
+
+        align-items: center;
+        cursor: pointer;
+        display: none;
+        height: 60px;
+        order: 2;
+        padding: 0 10px;
+
+        &.mod-first {
+            order: -1;
+        }
+    }
+
     .navbar-nav {
-        display: inline-block;
-        list-style: none; /* 1 */
-        padding: 0; /* 1 */
-        margin: 0; /* 1 */
+        display: flex;
+        padding: 0 10px;
     }
 
         .navbar-nav-item {
-            display: inline-block;
-            margin-left: -3px; /* 2 */ // TODO: use a unit relative to the font size
-
-            &.mod-text {
-                height: 60px;
-                padding: 21px 20px 0;
-            }
-        }
-
-        .navbar-nav-item-link {
-            color: $color-font-link;
-            display: inline-block;
+            align-items: center;
+            display: flex;
             height: 60px;
-            padding: 21px 20px 0;
+        }
 
-            &.is-active {
-                box-shadow: 0 0 5px rgba(0, 0, 0, .125);
+            .navbar-nav-item-link {
+                align-items: center;
+                color: $color-font-link;
+                display: flex;
+                height: 60px;
+                padding: 0 20px;
+                position: relative;
+
+                &.mod-icon {
+                    @extend %mod-icon;
+                }
+
+                &.mod-button {
+                    @extend %button;
+
+                    margin: 0 5px;
+                }
+
+                &.is-active {
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, .125);
+                }
+
+                &:hover {
+                    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .125);
+                }
+
+                &:active {
+                    top: 1px;
+                }
             }
 
-            &:hover {
-                box-shadow: inset 0 0 5px rgba(0, 0, 0, .125);
+
+    /**
+     * Navbar Search
+     * -------------
+     *
+     * Add a search input to the navbar. The search input tries to fill all
+     * the available space, but if there's too much space the input is fixed
+     * to a maximum width and is aligned to the right.
+     *
+     * On small screens the input is hidden and only the search icon remains.
+     * By clicking the search icon the input appears as a full width bar that
+     * overrides the other navbar sub-components. On focus loss the input
+     * returns to the hidden state.
+     *
+     * Example usage:
+     * ```
+     *   <form class="navbar-search" action="" method="">
+     *     <input class="navbar-search-textfield" type="text" placeholder="Search">
+     *     <button class="navbar-search-button" type="submit">search</button> <!-- "search" is the name of the Material Icon -->
+     *   </form>
+     * ```
+     */
+
+    .navbar-search {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        padding: 0 10px;
+    }
+
+        .navbar-search-textfield {
+            border: 1px solid rgba(0, 0, 0, .075);
+            border-bottom-color: transparent;
+            border-radius: 3px;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .125);
+            color: $color-font;
+            font-weight: 300;
+            height: 40px;
+            max-width: 350px; // TODO: review
+            outline-width: 0;
+            padding: 0 44px 0 15px;
+            transition: border-color .1s, width .25s;
+            width: 100%;
+
+            &::placeholder {
+                color: #ddd;
+            }
+
+            &:focus {
+                border: 1px solid $color-primary;
             }
         }
+
+        .navbar-search-button {
+            @include material-icons();
+
+            background: transparent;
+            border: 0;
+            color: $color-primary;
+            cursor: pointer;
+            height: 40px;
+            margin-left: -44px;
+            padding: 0 10px;
+        }
+
+
+@media #{$medium} {
+    .navbar {
+        flex-wrap: wrap;
+
+        &.mod-container {
+            padding: 0;
+        }
+    }
+
+    .navbar-toggle-nav-icon {
+        display: flex;
+    }
+
+    .navbar-nav {
+        background: #fff;
+        border-top: 1px solid rgba(0, 0, 0, .025);
+        display: none;
+        flex-wrap: wrap;
+        order: 100;
+        padding: 0;
+        width: 100%;
+    }
+
+        .navbar-nav-item {
+            flex-grow: 1;
+        }
+
+            .navbar-nav-item-link {
+                justify-content: center;
+                width: 100%;
+
+                &.mod-button {
+                    margin: 0 10px;
+                }
+            }
+}
+
+
+@media #{$small} {
+    .navbar-search {
+        padding: 0;
+    }
+
+    .navbar-search-textfield {
+        border-color: transparent;
+        box-shadow: none;
+        color: transparent;
+        max-width: none;
+        padding-right: 15px;
+        width: 44px;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:focus {
+            border: 1px solid $color-primary;
+            box-shadow: 0 1px 0px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .125);
+            color: $color-font;
+            padding-right: 44px;
+            position: absolute;
+            right: 2.5%;
+            width: 95%;
+
+            & + .navbar-search-button {
+                position: absolute;
+                right: 2.5%;
+            }
+        }
+    }
+
+    .navbar-search-button {
+        pointer-events: none;
+    }
+}

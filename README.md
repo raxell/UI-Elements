@@ -1,9 +1,18 @@
+# UI Elements
+
+Some good readings on CSS organization that inspired the following conventions:
+
+* https://github.com/trello/trellisheets/blob/master/styleguide.md
+* https://github.com/mobify/mobify-code-style/tree/master/css/class-naming-conventions
+* https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+
+
 ## Documentation
 
 The documentation of a component must be placed directly in the file where it is
 declared, in the form of docblock-like comments.
 The documentation must include all you need to know about the component: purpose, special
-behaviors, example code, etc.. Only by looking the CSS code you must figure out how to use
+behaviors, example code, etc.. Only by looking the CSS file you must figure out how to use
 a particular component.
 The docblock-like comments should be as follow:
 
@@ -19,7 +28,7 @@ The docblock-like comments should be as follow:
      * ```
      *
      * Notes:
-     * 1) exaplin why you put this property
+     * 1) explain why you put this property
      */
     .component {
         ...
@@ -54,14 +63,24 @@ The *Notes* block is used to explain the usage of a particular CSS property that
 be misunderstood. Don't abuse it.
 
 
-
 ## Conventions
 
-* One file per components
+* One file per component
 
 * Class names are kebab-case (*words-are-dash-separated*)
 
-* **State** and **Modifier** classes must be tied to the selector they affect, they **should
+* CSS properties are ordered alphabetically
+
+* Utility classes starts with `u-`, state classes start with `is-` and modifier classes
+starts with `mod-`
+
+* Define state classes after modifiers in source-order to avoid modifiers accidentally
+overriding states
+
+* Preprocessor nested rules should be used only when you need to reference the parent
+selector (e.g. pseudo-classes, modifiers, states, etc...)
+
+* *State* and *Modifier* classes must be tied to the selector they affect, they **should
 never be declared as stand-alone rules**. Example:
     ```
     /* BAD */
