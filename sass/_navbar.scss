@@ -234,7 +234,7 @@
             max-width: 350px; // TODO: review
             outline-width: 0;
             padding: 0 44px 0 15px;
-            transition: border-color .1s ease, width .25s ease;
+            transition: border-color .1s, width .25s;
             width: 100%;
 
             &::placeholder {
