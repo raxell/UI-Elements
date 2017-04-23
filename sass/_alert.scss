@@ -2,28 +2,57 @@
  * Alert
  * =====
  *
- * Panel that provide feedback messages to user.
+ * Panel that provide feedback messages to the user.
+ *
+ * By default alerts take all the available width.
+ *
+ * The default background-color of an alert is the primary color, use
+ * the modifiers `mod-success`, `mod-error` to change it.
+ *
+ * It's possible to include an icon to dismiss the alert as shown below.
+ * The dismiss mechanism is obtained using a checkbox and a label: the
+ * checkbox is used for hiding the alert, the label for displaying the
+ * close icon. The `<label>` and `<input>` must be placed exactly as
+ * shown in the example below to work: each checkbox hides the alert
+ * that immediately follow it in the markup.
+ * NB: with this implementation of dismiss the alert remains in the DOM,
+ * but there's no dependency on javascript. This can represent a problem
+ * only for single page apps: in that case a differtent behavior can be
+ * handled from the application side if needed.
+ *
+ * Example usage:
+ * ```
+ * <!-- non-dismissible alert -->
+ * <div class="alert [modifier]">
+ *
+ * <!-- dismissible alert -->
+ * <input class="alert-close" type="checkbox" id="alert-name">
+ * <div class="alert [modifier]">
+ *   <label class="alert-close-icon" for="alert-name">close</label><!-- "close" is the name of the Material Icon -->
+ *   Text
+ * </div>
+ * ```
  */
+
+.alert-close {
+    display: none;
+
+    &:checked + .alert {
+        display: none;
+    }
+}
 
 .alert {
     background-color: $color-primary;
     border-radius: 3px;
     color: #fff;
-    padding: 12px 40px 12px 20px;
-    width: 100%; // Todo: choose how to handle width: parent container or modifier?
-
-    // TODO: Remove? Is this necessary?
-    // Truncate a really long word in a small width alert.
-    // This situation should never happen in real world scenarios, just precaution.
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    padding: 15px 58px 15px 20px;
+    position: relative;
+    width: 100%;
 
     &.mod-success {
         background-color: $color-success;
-    }
-
-    &.mod-warning {
-        background-color: $color-warning;
     }
 
     &.mod-error {
@@ -31,12 +60,12 @@
     }
 }
 
-    .alert-close {
-        color: rgba(255, 255, 255, .6);
+    .alert-close-icon {
+        @include material-icons();
+
         cursor: pointer;
-        float: right;
+        position: absolute;
+        right: 20px;
+        top: 15px;
         font-size: 18px;
-        position: relative;
-        margin-right: -30px; // HACK
-        margin-top: -1px; // HACK
     }
