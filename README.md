@@ -75,7 +75,8 @@ be misunderstood. Don't abuse it.
 starts with `mod-`
 
 * Define state classes after modifiers in source-order to avoid modifiers accidentally
-overriding states
+overriding states. And define pseudo-classes (e.g. `:hover`) after state classes for
+the same reason.
 
 * Preprocessor nested rules should be used only when you need to reference the parent
 selector (e.g. pseudo-classes, modifiers, states, etc...)

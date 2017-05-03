@@ -12,15 +12,6 @@
     outline-width: 0;
     padding: 0 20px;
 
-    &:hover {
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .125);
-    }
-
-    &:active {
-        position: relative;
-        top: 1px;
-    }
-
     &.mod-primary {
         background-color: $color-primary;
         color: #fff;
@@ -34,5 +25,14 @@
     &.mod-error {
         background-color: $color-error;
         color: #fff;
+    }
+
+    &:hover {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, .125);
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
     }
 }
