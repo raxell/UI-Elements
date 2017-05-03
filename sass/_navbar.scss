@@ -167,7 +167,6 @@
                 display: flex;
                 height: 60px;
                 padding: 0 20px;
-                position: relative;
 
                 &.mod-icon {
                     @extend %mod-icon;
@@ -188,6 +187,7 @@
                 }
 
                 &:active {
+                    position: relative;
                     top: 1px;
                 }
             }
