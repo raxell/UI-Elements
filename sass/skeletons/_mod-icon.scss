@@ -9,19 +9,27 @@
 %mod-icon {
     padding-left: 12px;
 
-    &.mod-text-hidden {
-        font-size: 0;
-        padding: 0 12px;
-
-        &:before {
-            margin-right: 0;
-        }
-    }
-
     &:before {
         @include material-icons();
 
         content: attr(data-icon);
         margin-right: 6px;
+    }
+}
+
+/**
+ * Icon-only modifier
+ * ------------------
+ *
+ * Same behavior of `%mod-icon`, but also hides the text leaving only the icon visible.
+ */
+%mod-icon-only {
+    @extend %mod-icon;
+
+    font-size: 0;
+    padding-right: 12px;
+
+    &:before {
+        margin-right: 0;
     }
 }

@@ -28,8 +28,8 @@
  *   <button class="button [modifiers] mod-icon" type="button" data-icon="icon_name">Button</button>
  *
  *   <!-- button with icon only (text is hidden) -->
- *   <a class="button [modifiers] mod-icon mod-text-hidden" data-icon="icon_name">Button</a>
- *   <button class="button [modifiers] mod-icon mod-text-hidden" type="button" data-icon="icon_name">Button</button>
+ *   <a class="button [modifiers] mod-icon-only" data-icon="icon_name">Button</a>
+ *   <button class="button [modifiers] mod-icon-only" type="button" data-icon="icon_name">Button</button>
  * ```
  */
 
@@ -38,5 +38,9 @@
 
     &.mod-icon {
         @extend %mod-icon;
+    }
+
+    &.mod-icon-only {
+        @extend %mod-icon-only;
     }
 }

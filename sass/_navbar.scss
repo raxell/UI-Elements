@@ -105,9 +105,9 @@
      *       <a class="navbar-nav-item-link"></a>
      *     </li>
      *
-     *     <!-- item with icon only (anchor text is in the markup but is hidden) -->
+     *     <!-- item with icon only (text is hidden) -->
      *     <li class="navbar-nav-item">
-     *       <a class="navbar-nav-item-link mod-icon mod-text-hidden" data-icon="icon-name">Page name</a>
+     *       <a class="navbar-nav-item-link mod-icon-only" data-icon="icon-name">Page name</a>
      *     </li>
      *
      *     <!-- button style item, can be used for login/signup links -->
@@ -121,7 +121,7 @@
      *     <li class="navbar-nav-item">
      *         <a class="navbar-nav-item-link mod-button [modifiers] mod-icon" data-icon="icon_name"></a>
      *         <!-- or, with hidden text -->
-     *         <a class="navbar-nav-item-link mod-button [modifiers] mod-icon mod-text-hidden" data-icon="icon_name"></a>
+     *         <a class="navbar-nav-item-link mod-button [modifiers] mod-icon-only" data-icon="icon_name"></a>
      *     </li>
      *   </ul>
      * ```
@@ -170,6 +170,10 @@
 
                 &.mod-icon {
                     @extend %mod-icon;
+                }
+
+                &.mod-icon-only {
+                    @extend %mod-icon-only;
                 }
 
                 &.mod-button {
